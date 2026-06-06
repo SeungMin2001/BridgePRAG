@@ -15,7 +15,7 @@ with a Fusion-in-Decoder-style question-passage boundary and a lightweight
 linear **KV adapter** for calibration.
 
 <p align="center">
-  <img src="assets/bridgeprag_architecture.svg" alt="BridgePRAG architecture" width="92%">
+  <img src="assets/bridgeprag_architecture.svg" alt="BridgePRAG architecture" width="100%">
 </p>
 
 ## Why BridgePRAG?
@@ -184,4 +184,3 @@ Hugging Face Hub.
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
