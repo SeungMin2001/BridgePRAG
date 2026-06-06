@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If BridgePRAG is useful in your research, please cite this repository."
+title: "BridgePRAG: FiD-Inspired Question-Conditioned HyperKV Memory for Decoder-Only RAG"
+authors:
+  - family-names: "SeungMin2001"
+version: "0.1.0"
+date-released: "2026-06-07"
+url: "https://github.com/SeungMin2001/BridgePRAG"
+repository-code: "https://github.com/SeungMin2001/BridgePRAG"
+keywords:
+  - retrieval-augmented generation
+  - MergePRAG
+  - Fusion-in-Decoder
+  - KV cache
+  - HyperKV
+
