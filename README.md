@@ -14,9 +14,11 @@ It starts from the MergePRAG/HyperKV direction, then changes the memory encoder
 with a Fusion-in-Decoder-style question-passage boundary and a lightweight
 linear **KV adapter** for calibration.
 
-<p align="center">
-  <img src="assets/bridgeprag_architecture.svg" alt="BridgePRAG architecture" width="100%">
-</p>
+<div align="center">
+  <img src="assets/bridgeprag_architecture.svg" alt="BridgePRAG architecture: question-conditioned evidence is encoded into calibrated K/V memory slots" width="960">
+  <br>
+  <sub><b>Figure 1.</b> FiD-style question-passage encoding generates calibrated K/V memory slots for decoder-only RAG.</sub>
+</div>
 
 ## Why BridgePRAG?
 
@@ -115,13 +117,19 @@ passage-only memory comparison on an entity-style memory validation setup.
 | QA Score | 38.26 | 26.16 | +12.10 |
 | Avg. Time (s) | 4.17 | 4.83 | -0.66 |
 
-<p align="center">
-  <img src="assets/bridgeprag_evaluation_metrics_table.png" alt="BridgePRAG evaluation table" width="82%">
-</p>
+<div align="center">
+  <img src="assets/bridgeprag_evaluation_metrics_table.png" alt="BridgePRAG evaluation metrics table comparing question-passage memory with passage-only memory" width="860">
+  <br>
+  <sub><b>Table 1.</b> Question-conditioned memory improves hit accuracy, F1, and QA score while reducing average latency.</sub>
+</div>
 
-<p align="center">
-  <img src="assets/bridgeprag_training_curves.png" alt="BridgePRAG training curves" width="92%">
-</p>
+<br>
+
+<div align="center">
+  <img src="assets/bridgeprag_training_curves.png" alt="BridgePRAG training curves for accuracy and loss" width="960">
+  <br>
+  <sub><b>Figure 2.</b> Question-conditioned K/V memory reaches higher validation accuracy and converges faster than passage-only memory.</sub>
+</div>
 
 ## Dataset Format
 
