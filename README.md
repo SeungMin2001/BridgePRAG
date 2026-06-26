@@ -140,11 +140,20 @@ passage-only memory comparison on an entity-style validation setup.
 | QA Score | 38.26 | 26.16 | +12.10 |
 | Avg. Time (s) | 4.17 | 4.83 | -0.66 |
 
+**Takeaway.** Question-conditioned memory improves both retrieval-grounded
+answer quality and efficiency: higher hit accuracy, higher F1, higher QA score,
+and lower average latency in this validation snapshot.
+
+<details>
+<summary>Rendered metrics table</summary>
+
 <div align="center">
-  <img src="assets/bridgeprag_evaluation_metrics_table.png" alt="BridgePRAG evaluation metrics table comparing question-passage memory with passage-only memory" width="860">
+  <img src="assets/bridgeprag_evaluation_metrics_table.png" alt="BridgePRAG evaluation metrics table comparing question-passage memory with passage-only memory" width="560">
   <br>
-  <sub><b>Table 1.</b> Question-conditioned memory improves hit accuracy, F1, and QA score while reducing average latency.</sub>
+  <sub><b>Table 1.</b> Rendered version of the metric table for presentations and sharing.</sub>
 </div>
+
+</details>
 
 ### Test-set Learning Curve
 
