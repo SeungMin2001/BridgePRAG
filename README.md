@@ -7,6 +7,7 @@
 [![Transformers](https://img.shields.io/badge/Hugging%20Face-Transformers-yellow)](https://huggingface.co/docs/transformers)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Research Preview](https://img.shields.io/badge/status-research%20preview-purple)](#research-status)
+[![Paper](https://img.shields.io/badge/paper-accepted%20%40%20KDCS-0a7c66)](#research-status)
 
 BridgePRAG is a compact research codebase for encoding retrieved evidence into
 learned **K/V memory slots** and injecting them into a frozen decoder-only LLM.
@@ -14,11 +15,33 @@ It starts from the MergePRAG/HyperKV direction, then changes the memory encoder
 with a Fusion-in-Decoder-style question-passage boundary and a lightweight
 linear **KV adapter** for calibration.
 
+A paper based on this project has been accepted by the **Korean Digital Contents
+Society** (**한국디지털콘텐츠학회**). Publication details will be added after the
+proceedings are released.
+
 <div align="center">
   <img src="assets/bridgeprag_architecture.svg" alt="BridgePRAG architecture: question-conditioned evidence is encoded into calibrated K/V memory slots" width="960">
   <br>
   <sub><b>Figure 1.</b> FiD-style question-passage encoding generates calibrated K/V memory slots for decoder-only RAG.</sub>
 </div>
+
+## At a Glance
+
+BridgePRAG asks a simple question: can retrieved passages be compressed into
+small trainable K/V memories that are already aware of the user question?
+
+Instead of generating memory from a passage alone, BridgePRAG encodes
+`question + passage`, creates HyperKV slots, calibrates them with a lightweight
+adapter, and injects the resulting memory into a frozen decoder-only model.
+The goal is to provide a compact reference implementation for researchers and
+engineers exploring decoder-only RAG memory.
+
+**Current validation snapshot**
+
+- +43.00 hit accuracy over passage-only memory on the entity-style validation setup.
+- +24.67 F1 score over passage-only memory.
+- Faster average inference time in the reported comparison.
+- Training curves show faster convergence and higher validation accuracy than the passage-only baseline.
 
 ## Why BridgePRAG?
 
@@ -105,8 +128,8 @@ See [docs/method.md](docs/method.md) for the full research note.
 
 ## Results Snapshot
 
-The current BridgePRAG branch reports the following question+passage vs
-passage-only memory comparison on an entity-style memory validation setup.
+The current BridgePRAG branch reports the following question+passage memory vs
+passage-only memory comparison on an entity-style validation setup.
 
 | Metric | Question+Passage | Passage-only | Delta |
 | --- | ---: | ---: | ---: |
@@ -123,12 +146,19 @@ passage-only memory comparison on an entity-style memory validation setup.
   <sub><b>Table 1.</b> Question-conditioned memory improves hit accuracy, F1, and QA score while reducing average latency.</sub>
 </div>
 
-<br>
+### Training Curve Comparison
+
+The two training visualizations below compare BridgePRAG against the
+passage-only baseline under the same epoch budget. BridgePRAG reduces
+validation loss more aggressively and reaches near-saturated validation accuracy,
+while the passage-only baseline improves more slowly and remains accuracy-limited.
+
+| BridgePRAG: question-conditioned K/V memory | Passage-only HyperKV memory |
+| --- | --- |
+| <img src="assets/bridgeprag_train_val_loss_accuracy.png" alt="BridgePRAG training and validation loss/accuracy curves" width="480"> | <img src="assets/passage_only_train_val_loss_accuracy.png" alt="Passage-only training and validation loss/accuracy curves" width="480"> |
 
 <div align="center">
-  <img src="assets/bridgeprag_training_curves.png" alt="BridgePRAG training curves for accuracy and loss" width="960">
-  <br>
-  <sub><b>Figure 2.</b> Question-conditioned K/V memory reaches higher validation accuracy and converges faster than passage-only memory.</sub>
+  <sub><b>Figure 2.</b> Question-conditioned memory learns a sharper loss curve and reaches substantially higher validation accuracy than passage-only memory.</sub>
 </div>
 
 ## Dataset Format
@@ -165,12 +195,18 @@ BridgePRAG mechanism easy to inspect, run, and adapt. Large checkpoints are not
 stored in git; release checkpoints should be attached through GitHub Releases or
 Hugging Face Hub.
 
+Paper status:
+
+- Accepted by the Korean Digital Contents Society (한국디지털콘텐츠학회).
+- Publication, volume, pages, and DOI are pending.
+- The citation block will be updated when the official proceedings entry is available.
+
 ## Roadmap
 
 - [ ] Release a compact pretrained BridgePRAG checkpoint.
 - [ ] Add a full benchmark script for passage-only vs question+passage memory.
 - [ ] Add Hugging Face model card metadata for released checkpoints.
-- [ ] Add an arXiv-style technical report.
+- [ ] Update the citation after the accepted paper is published.
 
 ## Citation
 
