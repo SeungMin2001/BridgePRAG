@@ -41,7 +41,7 @@ engineers exploring decoder-only RAG memory.
 - +43.00 hit accuracy over passage-only memory on the entity-style validation setup.
 - +24.67 F1 score over passage-only memory.
 - Faster average inference time in the reported comparison.
-- Training curves show faster convergence and higher validation accuracy than the passage-only baseline.
+- Test-set and train/validation visualizations show faster convergence and higher accuracy than the passage-only baseline.
 
 ## Why BridgePRAG?
 
@@ -146,6 +146,20 @@ passage-only memory comparison on an entity-style validation setup.
   <sub><b>Table 1.</b> Question-conditioned memory improves hit accuracy, F1, and QA score while reducing average latency.</sub>
 </div>
 
+### Test-set Learning Curve
+
+The original test-set visualization is kept as the primary comparison figure.
+It shows the question-conditioned BridgePRAG model rising sharply in accuracy
+while the passage-only baseline improves more slowly. The loss curve follows the
+same pattern: BridgePRAG reaches lower loss earlier, suggesting that the model
+uses question-aware memory slots more effectively than passage-only memory.
+
+<div align="center">
+  <img src="assets/bridgeprag_training_curves.png" alt="Test-set learning curves comparing BridgePRAG question-passage memory with passage-only memory" width="960">
+  <br>
+  <sub><b>Figure 2.</b> Test-set comparison between question-conditioned BridgePRAG memory and passage-only memory.</sub>
+</div>
+
 ### Training Curve Comparison
 
 The two training visualizations below compare BridgePRAG against the
@@ -158,7 +172,7 @@ while the passage-only baseline improves more slowly and remains accuracy-limite
 | <img src="assets/bridgeprag_train_val_loss_accuracy.png" alt="BridgePRAG training and validation loss/accuracy curves" width="480"> | <img src="assets/passage_only_train_val_loss_accuracy.png" alt="Passage-only training and validation loss/accuracy curves" width="480"> |
 
 <div align="center">
-  <sub><b>Figure 2.</b> Question-conditioned memory learns a sharper loss curve and reaches substantially higher validation accuracy than passage-only memory.</sub>
+  <sub><b>Figure 3.</b> Question-conditioned memory learns a sharper loss curve and reaches substantially higher validation accuracy than passage-only memory.</sub>
 </div>
 
 ## Dataset Format
