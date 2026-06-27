@@ -20,7 +20,7 @@ Society** (**한국디지털콘텐츠학회**). Publication details will be adde
 proceedings are released.
 
 <div align="center">
-  <img src="assets/bridgeprag_architecture.svg" alt="BridgePRAG architecture: question-conditioned evidence is encoded into calibrated K/V memory slots" width="960">
+  <img src="assets/BridgePRAG_model.png" alt="BridgePRAG architecture: question-conditioned evidence is encoded into calibrated K/V memory slots" width="960">
   <br>
   <sub><b>Figure 1.</b> FiD-style question-passage encoding generates calibrated K/V memory slots for decoder-only RAG.</sub>
 </div>
